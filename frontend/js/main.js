@@ -199,7 +199,10 @@ function loadAuth() {
   const app = document.getElementById('app');
   app.innerHTML = `
     <div class="header">
-      <div class="logo">📊 TheRealm</div>
+      <div class="logo">
+        <img src="/frontend/assets/realm-symbol.png" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
+        <span class="logo-text">TheRealm</span>
+      </div>
       <div class="header-actions">
         <button class="theme-toggle" onclick="toggleTheme()">
           <div class="dot"></div>
@@ -299,7 +302,10 @@ async function loadDashboard() {
   app.innerHTML = `
     <div class="header">
       <div class="header-left">
-        <div class="logo">📊 TheRealm</div>
+        <div class="logo">
+          <img src="/frontend/assets/realm-symbol.png" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
+          <span class="logo-text">TheRealm</span>
+        </div>
         <nav class="header-nav">
           <a onclick="loadProjectsView()">📁 Projects</a>
           <a onclick="loadActivityView()">📋 Activity</a>
