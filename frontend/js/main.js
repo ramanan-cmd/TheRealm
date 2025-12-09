@@ -875,6 +875,106 @@ function openNewCodespace() {
     </div>
   `;
 }
+
+// === Collaboration ===
+function openCollabWith() {
+  const mainContent = document.getElementById('mainContent');
+  mainContent.innerHTML = `
+    <div style="padding:2rem; max-width:600px;">
+      <h1 style="font-size:1.75rem; font-weight:700; margin-bottom:1rem;">🤝 Collaborate</h1>
+      <p style="color:var(--text-light); margin-bottom:2rem;">Invite collaborators to work with you on projects.</p>
+      
+      <div style="background-color:var(--surface); border-radius:var(--radius-md); padding:2rem; border:1px solid var(--border);">
+        <div class="form-group">
+          <label style="font-weight:600;">Collaborator Username</label>
+          <input type="text" id="collabUsername" placeholder="Enter username to invite" style="padding:0.75rem; width:100%; border:1px solid var(--border); border-radius:var(--radius-md); background-color:var(--bg); color:var(--text);">
+        </div>
+        
+        <div class="form-group">
+          <label style="font-weight:600;">Repository Clone Link</label>
+          <textarea id="collabRepoLink" placeholder="Paste the repository clone link (HTTPS or SSH)" style="padding:0.75rem; width:100%; height:80px; border:1px solid var(--border); border-radius:var(--radius-md); background-color:var(--bg); color:var(--text); font-family:monospace; font-size:0.85rem;"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label style="font-weight:600;">Access Level</label>
+          <select id="collabAccessLevel" style="padding:0.75rem; width:100%; border:1px solid var(--border); border-radius:var(--radius-md); background-color:var(--bg); color:var(--text);">
+            <option value="view">👁️ View Only</option>
+            <option value="comment" selected>💬 Comment</option>
+            <option value="edit">✏️ Edit</option>
+            <option value="admin">👨‍💼 Admin</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label style="font-weight:600;">Message</label>
+          <textarea id="collabMessage" placeholder="Add a personal message..." style="padding:0.75rem; width:100%; height:60px; border:1px solid var(--border); border-radius:var(--radius-md); background-color:var(--bg); color:var(--text);"></textarea>
+        </div>
+        
+        <button class="btn primary" onclick="sendCollabInvite()" style="width:100%; margin-top:1rem;">📤 Send Collaboration Invite</button>
+      </div>
+      
+      <div style="margin-top:2rem;">
+        <h3 style="margin-bottom:1rem;">📋 Active Collaborations</h3>
+        <div id="activeCollabs" style="color:var(--text-light); text-align:center; padding:1rem;">Loading collaborations...</div>
+      </div>
+    </div>
+  `;
+  loadActiveCollaborations();
+}
+
+function sendCollabInvite() {
+  const username = document.getElementById('collabUsername').value.trim();
+  const repoLink = document.getElementById('collabRepoLink').value.trim();
+  const accessLevel = document.getElementById('collabAccessLevel').value;
+  const message = document.getElementById('collabMessage').value.trim();
+  
+  if (!username) {
+    showNotification('Please enter a username', 'error', '⚠️ Missing Username');
+    return;
+  }
+  
+  if (!repoLink) {
+    showNotification('Please provide a repository link', 'error', '⚠️ Missing Repository Link');
+    return;
+  }
+  
+  // Clear form
+  document.getElementById('collabUsername').value = '';
+  document.getElementById('collabRepoLink').value = '';
+  document.getElementById('collabMessage').value = '';
+  
+  showNotification(`Collaboration invite sent to ${username} with ${accessLevel} access!`, 'success', '✅ Invite Sent');
+  loadActiveCollaborations();
+}
+
+function loadActiveCollaborations() {
+  const collabsDiv = document.getElementById('activeCollabs');
+  if (!collabsDiv) return;
+  
+  // Mock data - in production, fetch from API
+  const activeCollabs = [
+    { username: 'alice_dev', accessLevel: 'Edit', status: 'Active' },
+    { username: 'bob_code', accessLevel: 'Comment', status: 'Pending' }
+  ];
+  
+  if (activeCollabs.length === 0) {
+    collabsDiv.innerHTML = '<p style="color:var(--text-light);">No active collaborations yet.</p>';
+    return;
+  }
+  
+  collabsDiv.innerHTML = activeCollabs.map(c => `
+    <div style="background-color:var(--surface); padding:1rem; border-radius:var(--radius-md); margin-bottom:0.75rem; text-align:left; border:1px solid var(--border);">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="font-weight:600; color:var(--text);">👤 ${escapeHtml(c.username)}</div>
+          <div style="font-size:0.85rem; color:var(--text-lighter);">${c.accessLevel} access • ${c.status}</div>
+        </div>
+        <button class="btn ghost sm" onclick="alert('Remove collaboration')">Remove</button>
+      </div>
+    </div>
+  `).join('');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   if (token) {
     loadDashboard();
