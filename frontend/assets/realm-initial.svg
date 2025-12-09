@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Circular initial logo for TheRealm: bold 'TR' centered, no other text -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="TheRealm logo">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      /* Use semi-black for main circle and semi-gray for letters */
+      .accent { fill: #1b1b1b; }
+      .letter { fill: #cfcfcf; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 96px; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" class="bg" rx="100" ry="100"/>
+  <circle cx="100" cy="100" r="90" class="accent"/>
+  <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" class="letter">TR</text>
+</svg>
