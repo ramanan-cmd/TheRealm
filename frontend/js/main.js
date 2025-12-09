@@ -200,7 +200,7 @@ function loadAuth() {
   app.innerHTML = `
     <div class="header">
       <div class="logo">
-        <img src="/frontend/assets/realm-symbol.svg" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
+        <img src="/frontend/assets/realm-initial.svg" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
         <span class="logo-text">TheRealm</span>
       </div>
       <div class="header-actions">
@@ -303,7 +303,7 @@ async function loadDashboard() {
     <div class="header">
       <div class="header-left">
         <div class="logo">
-          <img src="/frontend/assets/realm-symbol.svg" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
+          <img src="/frontend/assets/realm-initial.svg" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
           <span class="logo-text">TheRealm</span>
         </div>
         <nav class="header-nav">
