@@ -303,7 +303,7 @@ async function loadDashboard() {
         <nav class="header-nav">
           <a onclick="loadProjectsView()">📁 Projects</a>
           <a onclick="loadActivityView()">📋 Activity</a>
-          <a style="color:#fff;" onclick="openCollabWith()">🤝 Collab</a>
+          <a style="color:#fff;" onclick="openCollabWith()">🫂 Collab</a>
         </nav>
       </div>
       <div class="header-actions">
