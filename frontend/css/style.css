@@ -129,9 +129,7 @@ body {
 
 /* Unique wordmark styling for TheRealm */
 .logo-text.unique {
-  background: linear-gradient(90deg, #ffffff, #cfcfcf 40%, #9aa0a6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   font-weight: 800;
   letter-spacing: -0.6px;
   font-size: 1.08rem;
