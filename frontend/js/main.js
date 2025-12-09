@@ -268,6 +268,11 @@ function showMenuDropdown() {
   if (menu) menu.classList.toggle('show');
 }
 
+function closeMenuDropdown() {
+  const menu = document.getElementById('menuDropdown');
+  if (menu) menu.classList.remove('show');
+}
+
 function toggleMenu() {
   const dropdown = document.getElementById('menuDropdown');
   dropdown.classList.toggle('active');
@@ -309,12 +314,12 @@ async function loadDashboard() {
         <button class="btn secondary sm" onclick="logout()">Logout</button>
       </div>
       <div class="menu-dropdown" id="menuDropdown">
-        <a onclick="openSettings()">⚙️ Settings</a>
-        <a onclick="openIssues()">🪲 Issues</a>
-        <a onclick="loadProjectsView()">📁 Projects</a>
-        <a onclick="openCodespaces()">💻 Codespaces</a>
-        <a onclick="openNewRepository()">📦 New Repository</a>
-        <a onclick="openNewCodespace()">🚀 New Codespace</a>
+        <a onclick="openSettings(); closeMenuDropdown();">⚙️ Settings</a>
+        <a onclick="openIssues(); closeMenuDropdown();">🪲 Issues</a>
+        <a onclick="loadProjectsView(); closeMenuDropdown();">📁 Projects</a>
+        <a onclick="openCodespaces(); closeMenuDropdown();">💻 Codespaces</a>
+        <a onclick="openNewRepository(); closeMenuDropdown();">📦 New Repository</a>
+        <a onclick="openNewCodespace(); closeMenuDropdown();">🚀 New Codespace</a>
       </div>
     </div>
     <div class="container">
