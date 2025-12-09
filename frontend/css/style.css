@@ -115,6 +115,35 @@ body {
   color: var(--text);
 }
 
+/* Inline SVG wrapper (when embedding SVG directly) */
+.realm-symbol-embed {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  border: 2px solid rgba(0,0,0,0.06);
+}
+
+/* Unique wordmark styling for TheRealm */
+.logo-text.unique {
+  background: linear-gradient(90deg, #ffffff, #cfcfcf 40%, #9aa0a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  font-size: 1.08rem;
+}
+
+/* Slightly larger logo for header on larger screens */
+@media (min-width: 900px) {
+  .realm-symbol-embed { width: 48px; height: 48px; }
+  .realm-symbol { width: 48px; height: 48px; }
+  .logo-text.unique { font-size: 1.15rem; }
+}
+
 .header-nav {
   display: flex;
   gap: 1.5rem;

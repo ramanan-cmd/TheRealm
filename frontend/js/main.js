@@ -200,8 +200,19 @@ function loadAuth() {
   app.innerHTML = `
     <div class="header">
       <div class="logo">
-        <img src="/frontend/assets/realm-initial.svg" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
-        <span class="logo-text">TheRealm</span>
+        <svg class="realm-symbol-embed" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <defs>
+            <style>
+              .r-bg{fill:#0d1117}
+              .r-accent{fill:#1b1b1b}
+              .r-letter{fill:#cfcfcf;font-family:Segoe UI, Roboto, Helvetica, Arial, sans-serif;font-weight:800;font-size:96px}
+            </style>
+          </defs>
+          <rect width="100%" height="100%" class="r-bg" rx="100" ry="100"/>
+          <circle cx="100" cy="100" r="90" class="r-accent"/>
+          <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" class="r-letter">TR</text>
+        </svg>
+        <span class="logo-text unique">TheRealm</span>
       </div>
       <div class="header-actions">
         <button class="theme-toggle" onclick="toggleTheme()">
@@ -303,8 +314,19 @@ async function loadDashboard() {
     <div class="header">
       <div class="header-left">
         <div class="logo">
-          <img src="/frontend/assets/realm-initial.svg" alt="TheRealm" class="realm-symbol" onerror="this.style.display='none'">
-          <span class="logo-text">TheRealm</span>
+          <svg class="realm-symbol-embed" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <style>
+                .r-bg{fill:#0d1117}
+                .r-accent{fill:#1b1b1b}
+                .r-letter{fill:#cfcfcf;font-family:Segoe UI, Roboto, Helvetica, Arial, sans-serif;font-weight:800;font-size:96px}
+              </style>
+            </defs>
+            <rect width="100%" height="100%" class="r-bg" rx="100" ry="100"/>
+            <circle cx="100" cy="100" r="90" class="r-accent"/>
+            <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" class="r-letter">TR</text>
+          </svg>
+          <span class="logo-text unique">TheRealm</span>
         </div>
         <nav class="header-nav">
           <a onclick="loadProjectsView()">📁 Projects</a>
